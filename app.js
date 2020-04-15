@@ -6,16 +6,15 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 
-app.use(morgan('combined'))
+if (process.env.DISABLE_REQUESTS_LOGGING == undefined) {
+  app.use(morgan('combined'))
+}
 
 app.get('/', (req, res) => {
   res.send('Wappalyzer API is ready! 🚀')
 })
 
 app.get('/extract', (req, res) => {
-
-  // TODO: Handle missing URL
-
   let url = req.query.url
 
   if (url == undefined || url == '') {
