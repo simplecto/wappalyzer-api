@@ -2,7 +2,7 @@ const express = require('express')
 const Wappalyzer = require('wappalyzer')
 const morgan = require('morgan')
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 3000
 
 const app = express()
 
